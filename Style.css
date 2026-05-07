@@ -1,0 +1,50 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #e9ebee; /* Light soft grey */
+    color: #333;
+}
+
+header {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #fff;
+    margin-bottom: 30px;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding: 20px;
+}
+
+.memory-card {
+    background-color: white;
+    padding: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+/* This makes the card tilt slightly for a natural look */
+.memory-card:nth-child(odd) { transform: rotate(-2deg); }
+.memory-card:nth-child(even) { transform: rotate(2deg); }
+
+.memory-card:hover {
+    transform: rotate(0deg) scale(1.05); /* Straightens and grows on hover */
+    z-index: 10;
+}
+
+.memory-card img {
+    width: 300px;
+    height: auto;
+    display: block;
+}
+
+.caption {
+    text-align: center;
+    margin-top: 15px;
+    font-style: italic;
+    color: #666;
+}
