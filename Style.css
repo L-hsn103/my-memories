@@ -1,50 +1,73 @@
-/* General Reset */
+/* General Clean Up */
 body {
     margin: 0;
-    font-family: 'Inter', sans-serif;
-    background-color: #ffffff;
-    color: #1a1a1a;
+    font-family: 'Inter', sans-serif; /* A modern, clean font */
+    background-color: #fafafa; /* Very light grey */
+    color: #333;
 }
 
-/* Greeting Section */
-.hero {
+/* Header/Greetings Section */
+.main-header {
     text-align: center;
-    padding: 80px 20px;
-    background: #f8f9fa;
+    padding: 60px 20px;
+    background-color: white;
+    border-bottom: 1px solid #eee;
 }
 
-.hero h1 { font-size: 2.5rem; margin-bottom: 10px; }
+.main-header h1 {
+    font-size: 2.5rem;
+    margin: 0 0 10px 0;
+    font-weight: 700;
+}
 
-/* The Grid */
-.gallery-grid {
+.main-header p {
+    color: #777;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+/* The Perfect Collage Grid */
+.collage-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    /* This creates 3 equal columns automatically */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 15px; /* Spacing between photos */
     padding: 40px;
-    max-width: 1200px;
-    margin: 0 auto;
+    max-width: 1200px; /* Limits the width on large screens */
+    margin: 0 auto; /* Centers the whole grid */
 }
 
-.photo-link img {
+/* Collage Items */
+.collage-item {
+    overflow: hidden; /* Important for clean edges */
+    border-radius: 8px; /* Optional: adds rounded corners */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05); /* Soft shadow for depth */
+    background-color: white; /* Optional: if images have transparency */
+}
+
+.collage-item img {
     width: 100%;
-    height: 300px;
-    object-fit: cover; /* This makes all images the same size neatly */
-    border-radius: 8px;
+    height: 300px; /* Forces all images to be the same height */
+    object-fit: cover; /* This makes images fit neatly without stretching */
+    display: block;
     transition: transform 0.3s ease;
 }
 
-.photo-link img:hover {
-    transform: scale(1.03);
-    filter: brightness(80%);
+/* Add a subtle hover effect (optional but cool) */
+.collage-item img:hover {
+    transform: scale(1.05);
 }
 
-/* Detail Page Style */
-.detail-container {
-    max-width: 800px;
-    margin: 50px auto;
-    text-align: center;
-    padding: 20px;
+/* Tablet & Mobile Responsiveness */
+@media (max-width: 900px) {
+    .collage-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+    }
 }
 
-.detail-container img { width: 100%; border-radius: 12px; }
-.back-btn { display: inline-block; margin-top: 20px; text-decoration: none; color: blue; }
+@media (max-width: 600px) {
+    .collage-container {
+        grid-template-columns: 1fr; /* 1 column on phones */
+        padding: 20px;
+    }
+}
